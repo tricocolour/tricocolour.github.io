@@ -1,0 +1,390 @@
+
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>おうちで育む「生きる力」〜体験レッスン：色の仲間でつくるカラフルフラワー〜</title>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@400;500;700;900&family=Zen+Maru+Gothic:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root {
+  --red: #E8001D;
+  --teal: #00B4BE;
+  --yellow: #FFD700;
+  --orange: #FF8C00;
+  --soft-red: #FFF0F0;
+  --soft-teal: #F0FAFA;
+  --cream: #FFFDF5;
+  --dark: #2D2D2D;
+  --mid: #666;
+}
+* { margin: 0; padding: 0; box-sizing: border-box; }
+body {
+  font-family: "Zen Maru Gothic", "Noto Sans JP", sans-serif;
+  color: var(--dark);
+  background: var(--cream);
+  overflow-x: hidden;
+}
+.fv {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  background: linear-gradient(160deg, #fff 0%, #FFF0F0 40%, #FFF8E0 100%);
+}
+.fv-bg-circles { position: absolute; inset: 0; pointer-events: none; overflow: hidden; }
+.fv-bg-circles span { position: absolute; border-radius: 50%; opacity: 0.12; }
+.fv-bg-circles span:nth-child(1) { width: 400px; height: 400px; background: var(--red); top: -100px; left: -100px; }
+.fv-bg-circles span:nth-child(2) { width: 300px; height: 300px; background: var(--teal); bottom: -80px; right: -80px; }
+.fv-bg-circles span:nth-child(3) { width: 200px; height: 200px; background: var(--yellow); top: 60%; left: -60px; }
+.fv-bg-circles span:nth-child(4) { width: 150px; height: 150px; background: var(--orange); top: 20%; right: 5%; }
+.fv-inner {
+  position: relative; z-index: 2; width: 100%; max-width: 900px;
+  padding: 60px 24px 40px; display: flex; flex-direction: column;
+  align-items: center; gap: 24px;
+}
+.fv-badge {
+  background: var(--red); color: #fff; font-size: 13px; font-weight: 700;
+  letter-spacing: 0.1em; padding: 6px 20px; border-radius: 100px;
+  animation: fadeDown 0.6s ease both;
+}
+.fv-logo { width: 120px; animation: fadeDown 0.6s 0.1s ease both; }
+.fv-catch {
+  font-size: clamp(22px, 5vw, 36px); font-weight: 900; text-align: center;
+  line-height: 1.5; color: var(--dark); animation: fadeDown 0.6s 0.2s ease both;
+}
+.fv-catch .accent-red { color: var(--red); }
+.fv-catch .accent-teal { color: var(--teal); }
+.fv-sub {
+  font-size: clamp(14px, 3vw, 18px); color: var(--mid); text-align: center;
+  line-height: 1.7; animation: fadeDown 0.6s 0.3s ease both;
+}
+.fv-photo {
+  width: 100%; max-width: 560px; border-radius: 24px; overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.12); animation: fadeUp 0.8s 0.4s ease both;
+}
+.fv-photo img { width: 100%; display: block; }
+.fv-lesson-badge {
+  background: var(--teal); color: #fff; font-size: 14px; font-weight: 700;
+  padding: 10px 28px; border-radius: 100px; text-align: center; line-height: 1.5;
+  animation: fadeUp 0.6s 0.5s ease both;
+}
+.btn-cta {
+  display: inline-block; background: var(--red); color: #fff; font-size: 18px;
+  font-weight: 900; padding: 18px 48px; border-radius: 100px; text-decoration: none;
+  box-shadow: 0 8px 24px rgba(232,0,29,0.35); transition: transform 0.2s, box-shadow 0.2s;
+  animation: fadeUp 0.6s 0.6s ease both; cursor: pointer; border: none;
+}
+.btn-cta:hover { transform: translateY(-3px); box-shadow: 0 12px 32px rgba(232,0,29,0.45); }
+.btn-cta small { display: block; font-size: 12px; font-weight: 500; opacity: 0.85; margin-top: 2px; }
+section { padding: 72px 24px; }
+.section-inner { max-width: 860px; margin: 0 auto; }
+.section-label {
+  font-size: 12px; font-weight: 700; letter-spacing: 0.15em; color: var(--teal);
+  text-transform: uppercase; margin-bottom: 8px; text-align: center;
+}
+.section-title {
+  font-size: clamp(22px, 4vw, 32px); font-weight: 900; text-align: center;
+  line-height: 1.5; margin-bottom: 40px;
+}
+.pain-section { background: #fff; }
+.pain-intro {
+  font-size: 16px; color: var(--mid); text-align: center;
+  margin-bottom: 32px; line-height: 1.8;
+}
+.pain-list {
+  list-style: none; display: flex; flex-direction: column; gap: 14px;
+  max-width: 600px; margin: 0 auto 36px;
+}
+.pain-list li {
+  background: var(--soft-red); border-left: 4px solid var(--red);
+  padding: 14px 20px; border-radius: 0 12px 12px 0;
+  font-size: 15px; font-weight: 500; line-height: 1.6;
+}
+.pain-list li::before { content: "😔 "; }
+.pain-message {
+  background: linear-gradient(135deg, var(--red) 0%, #FF6B6B 100%);
+  color: #fff; border-radius: 20px; padding: 28px 32px; text-align: center;
+  font-size: 17px; font-weight: 700; line-height: 1.7;
+  max-width: 600px; margin: 0 auto;
+}
+.pain-message .small-note { font-size: 13px; font-weight: 400; opacity: 0.9; margin-top: 8px; }
+.answer-section { background: var(--soft-teal); }
+.answer-box {
+  background: #fff; border-radius: 24px; padding: 40px 36px;
+  box-shadow: 0 4px 24px rgba(0,180,190,0.1); text-align: center;
+}
+.answer-box .big-text {
+  font-size: clamp(20px, 4vw, 28px); font-weight: 900; line-height: 1.6;
+  color: var(--dark); margin-bottom: 20px;
+}
+.answer-box .big-text .hl { background: linear-gradient(to bottom, transparent 60%, #FFE066 60%); }
+.answer-box .big-text .hl-red { color: var(--red); }
+.answer-box p { font-size: 15px; line-height: 1.8; color: var(--mid); }
+.method-section { background: #fff; }
+.method-intro {
+  text-align: center; font-size: 15px; color: var(--mid); line-height: 1.8;
+  margin-bottom: 48px; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.approach-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(240px, 1fr)); gap: 24px; }
+.approach-card img { width: 100%; max-width: 280px; display: block; margin: 0 auto; border-radius: 16px; }
+.steps-section { background: linear-gradient(160deg, #FFF8F8 0%, #F0FAFA 100%); }
+.steps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 20px; }
+.step-card img { width: 100%; border-radius: 16px; box-shadow: 0 4px 20px rgba(0,0,0,0.08); }
+.pyramid-section { background: #1A1A2E; color: #fff; }
+.pyramid-section .section-label { color: #FFD700; }
+.pyramid-section .section-title { color: #fff; }
+.pyramid-desc { text-align: center; font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.8; margin-bottom: 36px; }
+.pyramid-img { max-width: 640px; width: 100%; display: block; margin: 0 auto; border-radius: 20px; }
+.pyramid-quote {
+  margin-top: 36px; background: rgba(255,255,255,0.08);
+  border: 1px solid rgba(255,255,255,0.15); border-radius: 16px;
+  padding: 24px 28px; text-align: center; font-size: 18px; font-weight: 700;
+  line-height: 1.7; max-width: 600px; margin-left: auto; margin-right: auto;
+}
+.pyramid-quote .accent { color: var(--yellow); }
+.lesson-section { background: #fff; }
+.lesson-box {
+  background: linear-gradient(135deg, #FFF8E0 0%, #FFF0F0 100%);
+  border-radius: 24px; padding: 40px; margin-bottom: 40px;
+}
+.lesson-box h3 { font-size: 20px; font-weight: 900; color: var(--red); margin-bottom: 16px; }
+.lesson-box p { font-size: 15px; line-height: 1.8; color: var(--dark); }
+.lesson-box .lesson-point {
+  background: #fff; border-radius: 16px; padding: 20px 24px;
+  margin-top: 20px; border-left: 4px solid var(--teal);
+}
+.lesson-box .lesson-point p { color: var(--mid); }
+.overview-table { width: 100%; border-collapse: collapse; border-radius: 16px; overflow: hidden; box-shadow: 0 4px 20px rgba(0,0,0,0.06); }
+.overview-table tr:nth-child(odd) td:first-child { background: var(--red); color: #fff; }
+.overview-table tr:nth-child(even) td:first-child { background: var(--teal); color: #fff; }
+.overview-table td { padding: 16px 20px; font-size: 15px; border-bottom: 1px solid #f0f0f0; }
+.overview-table td:first-child { font-weight: 700; width: 120px; text-align: center; font-size: 13px; letter-spacing: 0.05em; }
+.overview-table td:last-child { background: #fff; }
+.safety-section { background: var(--soft-teal); }
+.safety-card {
+  background: #fff; border-radius: 20px; padding: 36px;
+  max-width: 600px; margin: 0 auto; text-align: center;
+  box-shadow: 0 4px 24px rgba(0,180,190,0.1);
+}
+.safety-card .icon { font-size: 48px; margin-bottom: 16px; }
+.safety-card h3 { font-size: 20px; font-weight: 900; margin-bottom: 16px; color: var(--teal); }
+.safety-card p { font-size: 15px; line-height: 1.8; color: var(--mid); }
+.cta-section { background: linear-gradient(135deg, var(--red) 0%, #FF6B6B 100%); color: #fff; text-align: center; }
+.cta-section .cta-title { font-size: clamp(22px, 4vw, 32px); font-weight: 900; line-height: 1.5; margin-bottom: 12px; }
+.cta-section .cta-sub { font-size: 15px; opacity: 0.9; margin-bottom: 32px; line-height: 1.7; }
+.cta-section .cta-info {
+  display: inline-block; background: rgba(255,255,255,0.15);
+  border-radius: 12px; padding: 16px 32px; margin-bottom: 32px; font-size: 15px; line-height: 1.8;
+}
+.btn-cta-white {
+  display: inline-block; background: #fff; color: var(--red); font-size: 20px;
+  font-weight: 900; padding: 20px 56px; border-radius: 100px; text-decoration: none;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.15); transition: transform 0.2s; cursor: pointer; border: none;
+}
+.btn-cta-white:hover { transform: translateY(-3px); }
+.btn-cta-white small { display: block; font-size: 12px; color: var(--mid); margin-top: 4px; }
+footer { background: #1a1a1a; color: rgba(255,255,255,0.5); text-align: center; padding: 32px 24px; font-size: 12px; }
+@keyframes fadeDown { from { opacity: 0; transform: translateY(-20px); } to { opacity: 1; transform: translateY(0); } }
+@keyframes fadeUp { from { opacity: 0; transform: translateY(30px); } to { opacity: 1; transform: translateY(0); } }
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+.reveal.visible { opacity: 1; transform: translateY(0); }
+@media (max-width: 600px) {
+  section { padding: 56px 20px; }
+  .lesson-box { padding: 28px 20px; }
+  .overview-table td:first-child { width: 90px; font-size: 11px; padding: 14px 12px; }
+  .overview-table td:last-child { padding: 14px 12px; font-size: 14px; }
+}
+</style>
+</head>
+<body>
+
+<section class="fv">
+  <div class="fv-bg-circles"><span></span><span></span><span></span><span></span></div>
+  <div class="fv-inner">
+    <div class="fv-badge">体験レッスン ¥1,100（税込）</div>
+    <img class="fv-logo" src="images/logo.png" alt="kashikoロゴ">
+    <h1 class="fv-catch">
+      学校に行けなくても、<br>
+      <span class="accent-red">大丈夫。</span><br>
+      おうちで育む、<span class="accent-teal">「生きる力」</span>。
+    </h1>
+    <p class="fv-sub">
+      繊細なお子さんの感性を、色でそっと引き出す。<br>
+      親子で楽しむ60分の体験レッスンです。
+    </p>
+    <div class="fv-photo">
+      <img src="images/flower.jpg" alt="カラフルフラワーワークの様子">
+    </div>
+    <div class="fv-lesson-badge">🌸 体験レッスン：色の仲間でつくるカラフルフラワー</div>
+    <button class="btn-cta" onclick="document.getElementById('cta').scrollIntoView({behavior:'smooth'});">
+      6/25(木) 参加する
+      <small>オンライン・¥1,100（税込）</small>
+    </button>
+  </div>
+</section>
+
+<section class="pain-section">
+  <div class="section-inner">
+    <p class="section-label">For Mamas</p>
+    <h2 class="section-title">こんなこと、<br>心のどこかで感じていませんか？</h2>
+    <p class="pain-intro">
+      わが子が学校に行けない日々。<br>
+      「このままでいいのか」と、漠然とした不安に押しつぶされそうになることはありませんか？
+    </p>
+    <ul class="pain-list reveal">
+      <li>このまま社会から孤立してしまわないか不安でたまらない</li>
+      <li>自信をなくしている我が子を、どうサポートすればいいかわからない</li>
+      <li>「無理に学校へ」とは思いたくないけど、何もしないのも怖い</li>
+      <li>子どもの前では笑顔でいるけど、正直しんどい</li>
+    </ul>
+    <div class="pain-message reveal">
+      私も元不登校の長男を育ててきたので、<br>
+      その焦る気持ちが痛いほどわかります。
+      <p class="small-note">kashiko™︎メソッド講師 藤本れもん</p>
+    </div>
+  </div>
+</section>
+
+<section class="answer-section">
+  <div class="section-inner">
+    <p class="section-label">Solution</p>
+    <h2 class="section-title">今、一番必要なのは<br>「安心できる居場所」です</h2>
+    <div class="answer-box reveal">
+      <div class="big-text">
+        無理に集団へ戻すことでも、<br>
+        大人の正解を教え込むことでもなく——<br><br>
+        <span class="hl-red">繊細なお子さんこそ、</span><br>
+        まず<span class="hl">「感性」を育てること</span>が<br>
+        一番の近道なんです。
+      </div>
+      <p>どんな自分でも大丈夫と思える安心感が土台になるとき、<br>子どもはちゃんと自分の力で育っていきます。</p>
+    </div>
+  </div>
+</section>
+
+<section class="method-section">
+  <div class="section-inner">
+    <p class="section-label">kashiko® Method</p>
+    <h2 class="section-title">脳科学・心理学・大脳生理学をベースに<br>開発された教育メソッド</h2>
+    <p class="method-intro">
+      年齢や発達の特性に関係なく、すべての人が知性と個性を伸ばし、<br>
+      自分らしく成長できるよう設計された「3つのアプローチ」で、<br>
+      脳と心にそっと働きかけます。
+    </p>
+    <div class="approach-grid reveal">
+      <div class="approach-card"><img src="images/approach1.png" alt="Approach1 色彩法"></div>
+      <div class="approach-card"><img src="images/approach2.png" alt="Approach2 言葉がけ法"></div>
+      <div class="approach-card"><img src="images/approach3.png" alt="Approach3 学習法"></div>
+    </div>
+  </div>
+</section>
+
+<section class="steps-section">
+  <div class="section-inner">
+    <p class="section-label">Lesson Flow</p>
+    <h2 class="section-title">脳と心に負担をかけない<br>4つのステップで進みます</h2>
+    <div class="steps-grid">
+      <div class="step-card reveal"><img src="images/step1.png" alt="Step1 ハミング呼吸"></div>
+      <div class="step-card reveal"><img src="images/step2.png" alt="Step2 インプット"></div>
+      <div class="step-card reveal"><img src="images/step3.png" alt="Step3 アウトプット"></div>
+      <div class="step-card reveal"><img src="images/step4.png" alt="Step4 ふりかえり"></div>
+    </div>
+  </div>
+</section>
+
+<section class="pyramid-section">
+  <div class="section-inner">
+    <p class="section-label">7 Powers</p>
+    <h2 class="section-title">感性を育てると、<br>7つの力が自然と積み上がります</h2>
+    <p class="pyramid-desc">
+      kashiko®メソッドでは、まず「感性」という土台を丁寧に耕します。<br>
+      そこから創造力・知性・プレゼン力・主体性・多様性・協働性が<br>
+      自然と育まれていきます。
+    </p>
+    <img class="pyramid-img reveal" src="images/pyramid.png" alt="7つの力ピラミッド図">
+    <div class="pyramid-quote reveal">
+      これらはお子さんが将来、<br>
+      誰かの引いたレールの上ではなく<br>
+      <span class="accent">「自分で自分の人生のレールを<br>敷いていける力」</span>になります。
+    </div>
+  </div>
+</section>
+
+<section class="lesson-section">
+  <div class="section-inner">
+    <p class="section-label">Trial Lesson</p>
+    <h2 class="section-title">🌸 体験レッスン：<br>色の仲間でつくるカラフルフラワー</h2>
+    <div class="lesson-box reveal">
+      <h3>🎨 どんなワーク？</h3>
+      <p>似た色や柄をじっくり観察して、「これはどの色の仲間かな？」と考えながら色を分けて貼っていく、カラフルなお花づくりのワークです。</p>
+      <div class="lesson-point">
+        <p>
+          <strong>正解はありません。</strong><br>
+          大切なのは完成した作品ではなく、お子さんが「どうしてここに貼ったのか」という理由や、自分で考えて決めたプロセスです。<br><br>
+          親が評価を手放し、「そう見えたんだね」と受け止めることで、お子さんは「自分で決めていいんだ」という主体性を確かなものにしていきます。
+        </p>
+      </div>
+    </div>
+    <div class="reveal">
+      <h3 style="font-size:18px;font-weight:900;margin-bottom:16px;text-align:center;">📋 開催概要</h3>
+      <table class="overview-table">
+        <tr><td>日時</td><td>2025年6月25日（木）10:30〜11:30</td></tr>
+        <tr><td>受講方法</td><td>オンライン（Google Meets）</td></tr>
+        <tr><td>対象</td><td>不登校・ホームスクーリングを選択しているお子さんを育てているママ</td></tr>
+        <tr><td>料金</td><td><strong>¥1,100（税込）</strong></td></tr>
+      </table>
+    </div>
+  </div>
+</section>
+
+<section class="safety-section">
+  <div class="section-inner">
+    <div class="safety-card reveal">
+      <div class="icon">☺️</div>
+      <h3>安心してご参加ください</h3>
+      <p>
+        教室入会への無理な案内はいっさいありません。<br>
+        まずはホッと一息つける時間として、<br>
+        おうちという一番安全な場所から参加していただけます。<br><br>
+        「やってみたいな」と感じたその気持ちだけで、十分です。
+      </p>
+    </div>
+  </div>
+</section>
+
+<section class="cta-section" id="cta">
+  <div class="section-inner">
+    <p class="cta-title">おうちで、<br>親子の温かい対話の時間を<br>一緒に体験してみませんか？</p>
+    <p class="cta-sub">60分。それだけでいいんです。</p>
+    <div class="cta-info">
+      📅 2025年6月25日（木）10:30〜11:30<br>
+      💻 オンライン（Google Meets）<br>
+      💰 ¥1,100（税込）
+    </div>
+    <br>
+    <button class="btn-cta-white">
+      今すぐ申し込む
+      <small>¥1,100（税込）・無理な勧誘はありません</small>
+    </button>
+  </div>
+</section>
+
+<footer>
+  <p>© kashiko™︎ 藤本れもん | kashiko™︎メソッド講師</p>
+</footer>
+
+<script>
+const reveals = document.querySelectorAll(".reveal");
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add("visible"); observer.unobserve(e.target); }
+  });
+}, { threshold: 0.1 });
+reveals.forEach(el => observer.observe(el));
+</script>
+</body>
+</html>
